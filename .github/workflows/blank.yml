@@ -64,5 +64,5 @@ jobs:
         run: docker pull nginx:latest
 
       - name: run nginx
-        run: $ docker run --name some-nginx -d nginx:latest
+        run: docker run --name some-nginx -p 80:80 -d nginx:latest
       
