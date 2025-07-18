@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI/CD
 
 # Controls when the workflow will run
 on:
@@ -27,10 +27,7 @@ jobs:
 
       - name: know user run docker
         run: whoami
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: docker run hello-world:latest
-
+      # Runs a single command using the runners shel
       - name: Run a system update
         run: docker ps -a
 
