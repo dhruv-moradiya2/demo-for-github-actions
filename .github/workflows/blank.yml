@@ -28,7 +28,10 @@ jobs:
       - name: know user run docker
         run: whoami
       # Runs a single command using the runners shel
-      - name: Run a system update
+      - name: see docker continer
         run: docker ps -a
+
+      - name: see dir
+        run: pwd
 
 
