@@ -44,4 +44,6 @@ jobs:
       - name: update system
         run: sudo apt-get update
 
+      - name: os details
+        run: cat /etc/os-release
 
