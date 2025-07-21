@@ -1,0 +1,15 @@
+name: conditinal
+'on':
+  - push
+jobs:
+  conditional:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo basic info
+        run: |
+          echo "REF: $GITHUB_REF"
+          echo "job Id: $GITHUB_JOB"
+    
+      - name: The job has succeeded
+        if: ${{ success() }}
+        run: echo "hello"
