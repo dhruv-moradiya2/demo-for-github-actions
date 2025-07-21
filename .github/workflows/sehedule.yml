@@ -10,3 +10,4 @@ jobs:
     steps:
       - name: At every 2nd minute
         run: echo "date and time is $(date)"
+
