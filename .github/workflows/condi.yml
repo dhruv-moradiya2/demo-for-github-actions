@@ -1,0 +1,17 @@
+name: conditinal 
+
+on:
+  repository_dispatch:
+    types:
+      -  webhook
+
+jobs:
+  conditional:
+    if: github.repository == 'octo-org/octo-repo-go'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "echo basic info"
+        run: |
+          echo "REF: $GITHUB_REF"
+          echo "job Id: $GITHUB_JOB"
+
