@@ -4,7 +4,7 @@ name: check with cron
     - cron: '*/5 * * * *'
 jobs:
   test_schedule:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: At every 2nd minute
         run: echo "date and time is $(date)"
