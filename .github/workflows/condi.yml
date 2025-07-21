@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   conditional:
-    if: github.repository == 'octo-org/octo-repo-go'
+    if: github.repository == 'dhruv-moradiya2/demo-for-host-ac'
     runs-on: ubuntu-latest
     steps:
       - name: "echo basic info"
