@@ -1,13 +1,10 @@
 name: check with cron
-
-on:
+'on':
   schedule:
     - cron: '*/5 * * * *'
-
 jobs:
   test_schedule:
     runs-on: self-hosted
     steps:
       - name: At every 2nd minute
         run: echo "date and time is $(date)"
-
