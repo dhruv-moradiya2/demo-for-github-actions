@@ -1,4 +1,4 @@
-name: check with cron
+name: multi-event
 
 on:
   push:
