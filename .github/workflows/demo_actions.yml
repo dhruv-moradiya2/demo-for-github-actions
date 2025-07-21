@@ -47,3 +47,5 @@ jobs:
       - name: os details
         run: cat /etc/os-release
 
+      - name: check pwd and user 
+        run: pwd && whoami
