@@ -35,21 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: update system
-        run: sudo apt-get update
-
-      - name: os details
-        run: cat /etc/os-release
-
-      - name: check pwd and user 
-        run: pwd && whoami
-
   time:
     runs-on: ubuntu-latest
 
