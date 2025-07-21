@@ -1,9 +1,6 @@
 name: conditinal 
 
-on:
-  repository_dispatch:
-    types:
-      -  webhook
+on: [push]
 
 jobs:
   conditional:
