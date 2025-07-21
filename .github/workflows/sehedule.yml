@@ -1,3 +1,5 @@
+name: check with cron
+
 on:
   schedule:
     - cron: '*/2 * * * *'
