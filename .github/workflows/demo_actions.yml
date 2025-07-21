@@ -42,7 +42,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: update system
-        run: apt-get update
+        run: sudo apt-get update
 
 
-        
