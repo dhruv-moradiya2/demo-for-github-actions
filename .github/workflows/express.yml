@@ -1,4 +1,4 @@
-name: conditinal
+name: express
 'on':
   - push
 jobs:
