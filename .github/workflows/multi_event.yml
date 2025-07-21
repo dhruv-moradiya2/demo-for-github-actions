@@ -1,0 +1,20 @@
+name: check with cron
+
+on:
+  push:
+    branches: 
+       - "main"
+       - "dev"
+  pull_request:
+    branches: 
+        - "main"
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "echo basic info"
+        run: |
+          echo "REF: $GITHUB_REF"
+          echo "job Id: $GITHUB_JOB"
+
