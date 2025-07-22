@@ -23,3 +23,9 @@ jobs:
     steps:
       - name: "my step 1"
         run: echo "i am job1"
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "my step 3"
+        run: echo "i am job3"
