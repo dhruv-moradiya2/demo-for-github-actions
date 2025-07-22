@@ -15,9 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "my step 1"
-        run: echo "hello $MY_ACTION"
+        run: echo "hello $MY_ACTION and $MY_ACTOR"
         env: 
           MY_ACTION: ${{ github.action }}
+          MY_ACTOR: ${{ github.actor }}
 
       - name: "my step 2"
         run: echo "hello $MY_ACTION"
