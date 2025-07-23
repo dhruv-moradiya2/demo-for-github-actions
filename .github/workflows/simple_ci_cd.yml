@@ -26,6 +26,7 @@ jobs:
                docker build -t flask-app:latest .
                docker images 
                docker tag flask-app:latest ${{ secrets.DOCKER_USER }}/flask-app:latest
+               docker push ${{ secrets.DOCKER_USER }}/flask-app:latest
                docker images
                hostname -I
  
