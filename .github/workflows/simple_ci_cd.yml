@@ -22,15 +22,22 @@ jobs:
             - name: check version and build file
               run: |
                docker --version
-               docker login -u ${{  secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWD }}
-               pwd
-               ls -las
+               docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWD }}
                docker build -t flask-app:latest .
                docker images 
-               docker compose up -d --build 
-               docker ps
                hostname -I
  
+    build_image:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: build images and list image
+              run:
+               docker build -t flask-app:latest .
+               docker images 
+               hostname -I
+
+               
     # check_login:
     #     runs-on: self-hosted
     #     steps:
