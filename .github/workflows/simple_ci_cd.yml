@@ -27,6 +27,8 @@ jobs:
                ls -las
                docker build -t flask-app:latest .
                docker images 
+               docker compose up -d --build 
+               docker ps
  
     # check_login:
     #     runs-on: self-hosted
