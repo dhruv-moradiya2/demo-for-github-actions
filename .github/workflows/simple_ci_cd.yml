@@ -32,11 +32,13 @@ jobs:
  
 
 
-    # check_login:
-    #     runs-on: self-hosted
-    #     steps:
-    #         - name: check login
-    #           run: |
-    #             docker login -u ${{  secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWD }}
-    
-    
+    check_login:
+        needs: check_docker
+        runs-on: self-hosted
+        steps:
+            - name: run docker compose 
+              run: |
+                docker compose up -d --build
+                docker ps
+                docker images
+                
