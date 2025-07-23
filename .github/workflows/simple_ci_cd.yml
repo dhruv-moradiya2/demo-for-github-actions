@@ -29,6 +29,7 @@ jobs:
                docker images 
                docker compose up -d --build 
                docker ps
+               hostname -I
  
     # check_login:
     #     runs-on: self-hosted
