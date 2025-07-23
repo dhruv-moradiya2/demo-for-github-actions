@@ -21,7 +21,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USER }}/flask-app-2:latest
+          images: ${{ secrets.DOCKER_USER }}/flask-app-2
       -
         name: Login to DockerHub
         if: github.event_name != 'pull_request'
