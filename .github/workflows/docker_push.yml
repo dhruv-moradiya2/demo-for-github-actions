@@ -35,6 +35,12 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
+          push: true
+          tags: ${{ secrets.DOCKER_USER }}/flask-app-2
+      -
+        name: Build and push
+        uses: docker/build-push-action@v6
+        with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
