@@ -32,13 +32,13 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWD }}
       -
-        name: Build and push for custom image
+        name: Build and push with custom tag latest
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USER }}/flask-app-2:latest
+          tags: user/app:latest
       -
-        name: Build and push
+        name: Build and push with main tag
         uses: docker/build-push-action@v6
         with:
           context: .
