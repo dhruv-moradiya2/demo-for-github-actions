@@ -20,7 +20,7 @@ jobs:
                docker --version
                docker login -u ${{  secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWD }}
                pwd
-               ls
+               ls -las
 #              docker build -t flask-app:latest .
  
     check_login:
