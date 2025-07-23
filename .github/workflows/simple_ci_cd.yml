@@ -19,10 +19,13 @@ jobs:
               run: |
                docker --version
                docker login -u ${{  secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWD }}
-
+               docker build -t flask-app:latest .
+ 
     check_login:
         runs-on: self-hosted
         steps:
             - name: check login
               run: |
                 docker login -u ${{  secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWD }}
+    
+    
