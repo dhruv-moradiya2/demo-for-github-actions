@@ -30,8 +30,6 @@ jobs:
                docker images
                hostname -I
 
-
-
     check_login:
         needs: check_docker
         runs-on: self-hosted
