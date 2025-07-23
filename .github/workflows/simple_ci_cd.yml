@@ -18,7 +18,8 @@ jobs:
           run:
             working-directory: .
         steps:
-            - name: check version
+            - uses: actions/checkout@v4
+            - name: check version and build file
               run: |
                docker --version
                docker login -u ${{  secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWD }}
