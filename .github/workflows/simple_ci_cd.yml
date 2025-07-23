@@ -26,6 +26,7 @@ jobs:
                pwd
                ls -las
                docker build -t flask-app:latest .
+               docker images 
  
     # check_login:
     #     runs-on: self-hosted
