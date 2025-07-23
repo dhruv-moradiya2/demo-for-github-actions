@@ -32,12 +32,12 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: build images and list image
-              run:
+              run: | 
                docker build -t flask-app:latest .
                docker images 
                hostname -I
 
-               
+
     # check_login:
     #     runs-on: self-hosted
     #     steps:
