@@ -32,7 +32,7 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWD }}
       -
-        name: Build and push
+        name: Build and push for custom image
         uses: docker/build-push-action@v6
         with:
           push: true
