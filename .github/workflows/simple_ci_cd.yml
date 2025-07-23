@@ -36,9 +36,10 @@ jobs:
         needs: check_docker
         runs-on: self-hosted
         steps:
+            - uses: actions/checkout@v4
             - name: run docker compose 
               run: |
                 docker compose up -d --build
                 docker ps
                 docker images
-                
+
