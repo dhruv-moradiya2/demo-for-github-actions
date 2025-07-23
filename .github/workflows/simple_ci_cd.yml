@@ -25,17 +25,10 @@ jobs:
                docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWD }}
                docker build -t flask-app:latest .
                docker images 
+               docker tag flask-app:latest ${{ secrets.DOCKER_USER }}/flask-app:latest
+               docker images
                hostname -I
  
-    build_image:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - name: build images and list image
-              run: | 
-               docker build -t flask-app:latest .
-               docker images 
-               hostname -I
 
 
     # check_login:
