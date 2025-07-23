@@ -15,7 +15,8 @@ jobs:
         runs-on: ubuntu-latest
         defaults:
           run:
-            working-directory: ./pwd.sh
+            working-directory: .
         steps:
+            - uses: actions/checkout@v4
             - name: run user .sh 
               run: ./user.sh
