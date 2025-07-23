@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: flask-app
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - two-tier-app
+# docker run -d --name mysql \ 
+# --network two-tier-app \
+# -v mysql-data:/var/lib/mysql  \
+# -e MYSQL_ROOT_PASSWORD=root \
+# -e MYSQL_DATABASE=flask-app \
+# mysql:latest
+
+  flask:
+    #container_name: message_app
+    image: dhruv800b/flask-app
+    ports:
+      - 5000:5000
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_HOST=mysql
+      - MYSQL_PASSWORD=root
+      - MYSQL_DB=flask-app
+    networks:
+      - two-tier-app
+    depends_on:
+      - mysql
+    restart: always
+
+# docker run -d --network two-tier-app \
+# -e MYSQL_HOST=mysql \
+# -e MYSQL_USER=root \
+# -e MYSQL_PASSWORD=root \
+# -e MYSQL_DB=flask-app \
+# -p 5000:5000 \
+# flask-app-two:latest
+
+volumes:
+  mysql-data:
+
+networks:
+  two-tier-app:

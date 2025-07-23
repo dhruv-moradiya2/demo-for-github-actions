@@ -1,0 +1,21 @@
+name: checking docker login
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+jobs:
+    check_docker:
+        runs-on: self-hosted
+        steps:
+            - name: check version
+              run: docker --version
+
+               
