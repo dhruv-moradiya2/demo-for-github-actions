@@ -27,11 +27,10 @@ jobs:
           cache: 'npm'
       - run: ls && npm install
     
-      - name: get npm cache dir
-        id: npm-cache-dir
-        shell: bash
-        run: echo "$dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+      # - name: get npm cache dir
+      #   id: npm-cache-dir
+      #   shell: bash
+      #   run: echo "$dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
 
 
 
-        
