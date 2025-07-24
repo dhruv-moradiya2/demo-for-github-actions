@@ -35,6 +35,12 @@ jobs:
   python-cache:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache.pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
@@ -43,12 +49,12 @@ jobs:
       - name: install and cache
         run: pip install -r requirements.txt
       
-  know-about:
-    runs-on: ubuntu-latest
-    steps:
-        - uses: actions/cache@v4
-          with:
-            path: ~/.cache/pip
-            key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-            restore-keys: |
-              ${{ runner.os }}-pip-
+  # know-about:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #       - uses: actions/cache@v4
+  #         with:
+  #           path: ~/.cache/pip
+  #           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+  #           restore-keys: |
+  #             ${{ runner.os }}-pip-
