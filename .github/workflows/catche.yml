@@ -50,10 +50,10 @@ jobs:
         with:
           python-version: '3.12.3'
           cache: 'pip'
-      - name: create virtual
-        run: |
-          python3 -m venv venv
-          source ./venv/bin/active
+      # - name: create virtual
+      #   run: |
+      #     python3 -m venv venv
+      #     source ./venv/bin/active
       - name: install and cache
         run: pip install -r requirements.txt
       - name: check if cache is thier or not
