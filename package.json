@@ -1,0 +1,26 @@
+{
+  "name": "demo-for-host-ac",
+  "version": "1.0.0",
+  "description": "This is a simple Flask app that interacts with a MySQL database. The app allows users to submit messages, which are then stored in the database and displayed on the frontend.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruv-moradiya2/demo-for-host-ac.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dhruv-moradiya2/demo-for-host-ac/issues"
+  },
+  "homepage": "https://github.com/dhruv-moradiya2/demo-for-host-ac#readme",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "express": "^5.1.0",
+    "redis": "^5.6.1"
+  }
+}
