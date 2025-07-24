@@ -36,13 +36,13 @@ jobs:
         run: |
           echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
           echo "${{ runner.os }}"
-      - uses: actions/cache@v4
-        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+      # - uses: actions/cache@v4
+      #   id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+      #   with:
+      #     path: ${{ steps.npm-cache-dir.outputs.dir }}
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
       - name: check runner
         run: echo "os is=${{ runner.os }} and dir is=${{ steps.npm-cache-dir.outputs.dir }} and hashfile is=${{ hashFiles('**/package-lock.json') }}"
 
