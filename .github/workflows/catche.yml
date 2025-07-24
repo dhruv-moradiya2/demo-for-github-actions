@@ -55,8 +55,7 @@ jobs:
           python3 -m venv venv
           echo ""
           source venv/bin/activate
-      - name: install and cache
-        run: pip install -r requirements.txt
+          pip install -r requirements.txt
       - name: check if cache is thier or not
         run: echo "next step is catche"
       - name: get pip cache dir
