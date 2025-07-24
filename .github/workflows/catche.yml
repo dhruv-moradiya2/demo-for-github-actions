@@ -11,12 +11,14 @@ on:
   workflow_dispatch:
 
 jobs:
+  # step 1
   setup:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: for repo setup
         run: echo "pwd && ls"
+# step 2
   build:
     runs-on: ubuntu-latest
     steps:
@@ -26,12 +28,20 @@ jobs:
           node-version: 22
           cache: 'npm'
       - run: ls && npm install
-    
-      # - name: get npm cache dir
-      #   id: npm-cache-dir
-      #   shell: bash
-      #   run: echo "$dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
-
+      - run: echo "next step is npm cache"
+      - name: get npm cache dir
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+      - uses: actions/cache@v4
+        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+        
+# step 3
   python-cache:
     runs-on: ubuntu-latest
     steps:
@@ -44,19 +54,14 @@ jobs:
         run: pip install -r requirements.txt
       - name: check if cache is thier or not
         run: echo "next step is catche"
+      - name: get pip cache dir
+        id: pip-cache
+        shell: bash
+        run: |
+          echo "echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT"
       - uses: actions/cache@v4
         with:
           path: ~/.cache.pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-
-  # know-about:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #       - uses: actions/cache@v4
-  #         with:
-  #           path: ~/.cache/pip
-  #           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-  #           restore-keys: |
-  #             ${{ runner.os }}-pip-
