@@ -13,7 +13,7 @@ on:
 jobs:
   # step 1
   setup:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: for repo setup
@@ -21,7 +21,7 @@ jobs:
 # step 2
   node-cache:
     needs: [ setup ]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -45,7 +45,7 @@ jobs:
 # step 3
   python-cache:
     needs: [ setup , node-cache ]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -57,7 +57,8 @@ jobs:
           python3 -m venv venv
           echo ""
           source venv/bin/activate
-          pip install -r requirements.txt
+      - name: install and cache
+        run: pip install -r requirements.txt
       - name: check if cache is thier or not
         run: echo "next step is catche"
       - name: get pip cache dir
