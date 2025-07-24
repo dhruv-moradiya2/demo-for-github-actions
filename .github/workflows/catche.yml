@@ -11,7 +11,14 @@ on:
   workflow_dispatch:
 
 jobs:
-# step 1
+  # step 1
+  setup:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - name: for repo setup
+        run: echo "pwd && ls"
+# step 2
   node-cache:
     runs-on: self-hosted
     steps:
@@ -34,7 +41,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
         
-# step 2
+# step 3
   python-cache:
     runs-on: self-hosted
     steps:
