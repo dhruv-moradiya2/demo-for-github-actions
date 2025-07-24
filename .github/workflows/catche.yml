@@ -41,7 +41,7 @@ jobs:
           python-version: '3.13'
           cache: 'pip'
       - name: install and cache
-        run: pip install -r requirements.
+        run: pip install -r requirements.txt
       
   know-about:
     runs-on: ubuntu-latest
