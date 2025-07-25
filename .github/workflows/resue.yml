@@ -1,0 +1,32 @@
+name: demo-actions
+
+
+on:
+
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+  docker: 
+    uses: ./.github/workflows/simple_ci_cd.yml
+    with:
+        image_name: flask-app
+    secrets:
+        docker_user: ${{ secrets.DOCKER_USER }}
+        docker_passwd: ${{ secrets.DOCKER_PASSWD }}
