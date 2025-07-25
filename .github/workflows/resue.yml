@@ -10,20 +10,18 @@ on:
   workflow_dispatch:
 
 jobs:
-
+# step 1
   build:
-
     runs-on: ubuntu-latest
-
-
     steps:
 
       - uses: actions/checkout@v4
 
       - name: Run a one-line script
         run: echo Hello, world!
-
+# step 2
   docker: 
+    needs: [ build ]
     uses: ./.github/workflows/simple_ci_cd.yml
     with:
         image_name: flask-app
