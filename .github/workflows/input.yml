@@ -1,0 +1,24 @@
+name: input with good
+
+on:
+  workflow_dispatch:
+    inputs:
+        enviroment:
+            description: 'the env to deploy on'
+            required: true
+            default: 'productions'
+
+jobs:
+  
+  build:
+    
+    runs-on: ubuntu-latest
+
+    
+    steps:
+     
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo "Hello, ${{ github.event.inputs.enviroment }}"
+
