@@ -6,7 +6,7 @@ on:
         enviroment:
             description: 'the env to deploy on'
             required: true
-            default: 'productions'
+            default: ''
 
 jobs:
   
