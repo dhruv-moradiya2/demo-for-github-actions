@@ -20,6 +20,7 @@ jobs:
             - uses: actions/checkout@v4
             - name: check version and build file
               run: |
+               npm install
                echo "MY_SECRET:${{ secrets.MY_SECRET_DEMO_TO_ENV }}" >> .env
                pwd
                ls -la
