@@ -1,4 +1,4 @@
-name: env as defualt
+name: new_value_set
 
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -15,7 +15,7 @@ env:
 
 jobs:
     check_docker:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - uses: actions/checkout@v4
             - name: check version and build file
