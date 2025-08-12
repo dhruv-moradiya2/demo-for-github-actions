@@ -29,4 +29,4 @@ jobs:
                 echo "###############################"
                 cat .env
                 echo "###############################"
-                rsync -vaP /home/dhruv-moradiya/Devops-intern/Github_Actions/actions-runner/_work/demo-for-github-actions/demo-for-github-actions/* /home/dhruv-moradiya/Devops-intern/test_to_cd/
+                rsync -vaP --exclude=".*" /home/dhruv-moradiya/Devops-intern/Github_Actions/actions-runner/_work/demo-for-github-actions/demo-for-github-actions/* /home/dhruv-moradiya/Devops-intern/test_to_cd/
