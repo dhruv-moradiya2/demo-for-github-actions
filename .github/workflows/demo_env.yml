@@ -21,6 +21,7 @@ jobs:
             - name: check version and build file
               run: |
                echo "${{ secrets.MY_SECRET_DEMO_TO_ENV }}" >> .env
+               pwd
+               ls -la
                echo "test this on runner"
 
-               
