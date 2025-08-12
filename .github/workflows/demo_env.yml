@@ -14,7 +14,7 @@ env:
     F_NAME: dhruv
 
 jobs:
-    check_docker:
+    check_env_store:
         runs-on: self-hosted
         steps:
             - uses: actions/checkout@v4
@@ -29,5 +29,5 @@ jobs:
                 echo "###############################"
                 cat .env
                 echo "###############################"
-                rsync -vaP /home/dhruv-moradiya/Devops-intern/Github_Actions/actions-runner/_work/demo-for-github-actions/demo-for-github-actions/ /home/dhruv-moradiya/Devops-intern/test_to_cd/
+               
                 
