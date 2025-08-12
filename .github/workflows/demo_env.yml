@@ -1,0 +1,26 @@
+name: env as defualt
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+    F_NAME: dhruv
+
+jobs:
+    check_docker:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: check version and build file
+              run: |
+               echo "${{ secrets.MY_SECRET_DEMO_TO_ENV }}" >> .env
+               echo "test this on runner"
+
+               
